@@ -15,7 +15,7 @@ pub struct Application {
 impl Application {
     pub async fn build() -> Self {
         let router = Router::new()
-            .route("/url", get(get_shorten_url))
+            .route("/url", post(get_shorten_url))
             .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()));
         Self { port: 3000, router }
     }
